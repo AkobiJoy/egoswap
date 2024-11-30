@@ -2,7 +2,16 @@
 import Image from "next/image";
 import React from "react";
 
-const Show = ({ setShowSec1, setShowSec2, setShowSec3 }) => {
+const Show = ({ closeModal, setShowSec1, setShowSec2, setShowSec3 }) => {
+  const handleSectionChange = (section) => {
+    setShowSec1(false);
+    setShowSec2(false);
+    setShowSec3(false);
+    if (section === 1) setShowSec1(true);
+    else if (section === 2) setShowSec2(true);
+    else if (section === 3) setShowSec3(true);
+    // closeModal(); // Close the modal after changing the section
+  };
   return (
     <div className="bg-stone-950  w-[37rem] h-[95vh] mx-auto my-10 py-5 rounded-xl"
       onClick={(e) => e.stopPropagation()}
@@ -53,11 +62,7 @@ const Show = ({ setShowSec1, setShowSec2, setShowSec3 }) => {
 
 
         <div className="flex items-center gap-5 hover:bg-stone-700 cursor-pointer py-5 px-4 w-[37rem]"
-        onClick={()=>{
-          setShowSec1(true)
-          setShowSec2(false);
-          setShowSec3(false);
-        }}>
+       onClick={() => handleSectionChange(1)}>
           <div className="">
             <Image
               src="/usdt_img.png"
@@ -78,11 +83,7 @@ const Show = ({ setShowSec1, setShowSec2, setShowSec3 }) => {
 
 
         <div className="flex items-center gap-5 hover:bg-stone-700 cursor-pointer py-5 px-4 w-[37rem]"
-          onClick={()=>{
-            setShowSec1(false)
-            setShowSec2(true);
-            setShowSec3(false);
-          }}>
+         onClick={() => handleSectionChange(2)}>
         
           <div className="">
             <Image
@@ -104,11 +105,7 @@ const Show = ({ setShowSec1, setShowSec2, setShowSec3 }) => {
 
 
         <div className="flex items-center gap-5 hover:bg-stone-700 cursor-pointer py-5 px-4 w-[37rem]"
-          onClick={()=>{
-            setShowSec1(false)
-            setShowSec2(false);
-            setShowSec3(true);
-          }}>
+          onClick={() => handleSectionChange(3)}  >
         
           <div className="">
             <Image
