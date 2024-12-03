@@ -332,7 +332,7 @@ const Dashboard = () => {
 
               {/* Login/Signup Button */}
               <button className="bg-green-700 py-4 px-6 rounded-lg text-white text-xl font-semibold hover:bg-green-800 transition-transform transform hover:scale-105 mt-5 w-full">
-                <Link href="/login">Bridge</Link>
+                <Link href="/bridge">Bridge</Link>
               </button>
             </div>
           </section>
@@ -591,7 +591,7 @@ const Dashboard = () => {
 
               {/* Login/Signup Button */}
               <button className="bg-green-700 py-4 px-6 rounded-lg text-white text-xl font-semibold hover:bg-green-800 transition-transform transform hover:scale-105 mt-5 w-full">
-                <Link href="/login">Bridge</Link>
+                <Link href="/bridge">Bridge</Link>
               </button>
             </div>
           </section>
@@ -850,7 +850,7 @@ cursor-not-allowed opacity-50"
 
               {/* Login/Signup Button */}
               <button className="bg-green-700 py-4 px-6 rounded-lg text-white text-xl font-semibold hover:bg-green-800 transition-transform transform hover:scale-105 mt-5 w-full">
-                <Link href="/login">Bridge</Link>
+                <Link href="/bridge">Bridge</Link>
               </button>
             </div>
           </section>

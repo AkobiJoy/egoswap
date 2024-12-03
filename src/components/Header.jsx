@@ -14,7 +14,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-stone-900 py-9 px-[10rem] flex justify-between items-center">
+    <header className="bg-black py-9 px-[10rem] flex justify-between items-center">
       <div className="flex items-center gap-2">
         <div className="max-w-sm mx-auto">
           <Image
