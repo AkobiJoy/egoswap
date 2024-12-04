@@ -180,6 +180,7 @@ const CreatePin = ({ show, onClose }) => {
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showAlert, setShowAlert] = useState(false); // State for showing the alert
   const router = useRouter(); // Initialize the useRouter hook
 
 
@@ -207,7 +208,11 @@ const CreatePin = ({ show, onClose }) => {
 
     setTimeout(() => {
       setLoading(false);
-      router.push("/login"); // Navigate to the login page after creating the PIN
+      setShowAlert(true); // Show the alert when the PIN is created
+      setTimeout(() => {
+        setShowAlert(false); // Hide the alert after some time
+        router.push("/login"); // Navigate to the login page after the alert disappears
+      }, 3000); // Duration for the alert before redirecting
     }, 1500);
   };
 
@@ -215,6 +220,16 @@ const CreatePin = ({ show, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center z-50">
+            {showAlert && (
+        <div
+          className="fixed bottom-10 right-0 bg-white text-green-800 py-3 px-6 rounded-tl-lg text-lg font-bold transition-all transform duration-1000 ease-out"
+          style={{
+            transform: showAlert ? "translateX(0)" : "translateX(100%)", // Start from right and slide to the left
+          }}
+        >
+          PIN created successfully!
+        </div>
+      )}
       <div className="bg-black rounded-lg shadow-lg w-[90%] max-w-[38rem] p-8">
         <h2 className="text-3xl font-bold mb-6 text-center">Please Set a Pin</h2>
         <h3 className="text-xl  mb-6 text-center text-neutral-400">You'll need to create a pin to be able to make <br /> transactions</h3>
@@ -260,6 +275,7 @@ const CreatePin = ({ show, onClose }) => {
           Cancel
         </button> */}
       </div>
+      
     </div>
   );
 };
